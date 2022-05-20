@@ -1,7 +1,7 @@
 function logOutUser(){
   localStorage.removeItem("Authorization");
   localStorage.removeItem("UserInfo");
-  window.location.href = "/admin/auth/";
+  window.location.href = "/EdutSpot-Admin/auth/";
 }
 
 const addAdminUsermodal = document.getElementById("addUserModal");

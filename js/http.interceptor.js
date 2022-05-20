@@ -4,7 +4,7 @@
       const token = localStorage.getItem("Authorization");
       if(!token || token == "undefined"){
         localStorage.removeItem("Authorization");
-        window.location.href = "/admin/auth";
+        window.location.href = "/EdutSpot-Admin/auth";
         return;
       }else{
         this.setRequestHeader("authorization", "Bearer "+token);

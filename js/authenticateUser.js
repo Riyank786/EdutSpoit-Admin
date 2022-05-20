@@ -4,5 +4,5 @@
   xmlHttp.send(null);
   let data = JSON.parse(xmlHttp.responseText);
   if(data.status == "not logged in"){
-    window.location.href = "/admin/auth";
+    window.location.href = "/EdutSpot-Admin/auth";
   }

@@ -24,7 +24,7 @@ function login(data){
         let response = JSON.parse(xhr.response);
         localStorage.setItem("Authorization", response.token);
         localStorage.setItem("UserInfo", JSON.stringify(response.data));
-        window.location.href = "/admin/";
+        window.location.href = "/EdutSpot-Admin/";
       } 
     }
   };
