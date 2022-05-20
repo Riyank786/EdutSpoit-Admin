@@ -1,0 +1,243 @@
+.main-container .sidebar {
+  position: fixed;
+  left: -300px;
+}
+
+.content .header {
+  height: 49px;
+}
+.header_right_top {
+  height: 100%;
+}
+.header_left {
+  display: flex;
+  align-items: center;
+}
+.header_left .title {
+  margin-left: 17px;
+  margin-top: 0%;
+}
+
+#openMenuIcon{
+  display: flex !important;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.main-container .content {
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+}
+
+.optionsWrapper{
+  width: 50%;
+}
+
+.content .body-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: transparent;
+  overflow: auto;
+  height: fit-content;
+  border-radius: 0%;
+  height: calc(100% - 95px);
+  width: 100%;
+}
+
+.body-wrapper .video-content {
+  width: 73%;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.video-content .video-wrapper {
+  width: 100%;
+  height: 450px;
+  background-color: rgba(0, 0, 0, 0.863);
+}
+
+.video-content .content-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.body-wrapper .video-list {
+  width: 27%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #edf1f5;
+}
+
+.video-list .heading {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d1d7dc;
+  border-top: 1px solid #d1d7dc;
+}
+.close-video-list {
+  width: 27px;
+  height: 27px;
+  font-size: 24px;
+  display: none; /*flex*/
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video-list .video-link{
+  width: calc(100% - 20px);
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.video-link .video-controls{
+  display: flex;
+}
+.video-controls .video-control{
+  margin: 5px 10px;
+}
+.video-controls .video-control:hover{
+  transform: scale(1.2);
+}
+
+.addContentBtn{
+  width: 96%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  margin: 2%;
+  color: rgb(12, 194, 12);
+  border: 2px dashed rgb(12, 194, 12);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.video-list .video-link:hover {
+  background-color: #d1d7dc;
+}
+
+.video-list .video-link-active{
+  background-color: #d1d7dc;
+}
+
+.video-list .video-link .video-time {
+  display: flex;
+  align-items: center;
+}
+
+.video-time .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a6f70e8;
+  color: white;
+  font-size: 7px;
+}
+.video-time span {
+  margin-left: 10px;
+}
+
+.breadcrumbs {
+  border: 1px solid #cbd2d9;
+  border-radius: 17px;
+  margin-left: 17px;
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.breadcrumbs__item {
+  background: #fff;
+  color: #333;
+  outline: none;
+  padding: 0.1em 1em 0.1em 1em;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+.breadcrumbs__item:hover:after,
+.breadcrumbs__item:hover {
+  background: #edf1f5;
+}
+
+.breadcrumbs__item:focus:after,
+.breadcrumbs__item:focus,
+.breadcrumbs__item.is-active:focus {
+  background: #323f4a;
+  color: #fff;
+}
+
+.breadcrumbs__item:after,
+.breadcrumbs__item:before {
+  background: white;
+  bottom: 0;
+  clip-path: polygon(50% 50%, -50% -50%, 0 100%);
+  content: "";
+  left: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s linear;
+  width: 1em;
+  z-index: 1;
+}
+
+.breadcrumbs__item:before {
+  background: #cbd2d9;
+  margin-left: 1px;
+}
+
+.breadcrumbs__item:last-child {
+  border-right: none;
+}
+
+.breadcrumbs__item.is-active {
+  background: #323f4a;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .selectors{
+    flex-direction: column;
+  }
+  .optionsWrapper{
+    width: 100%;
+  }
+}
+@media (max-width: 990px) {
+  .main-container{
+    overflow: hidden;
+  }
+  #body-wrapper{
+    height: calc(100% - 182px);
+  }
+  .body-wrapper .video-content{
+    width: 100%;
+  }
+  .body-wrapper .video-list{
+    width: 270px;
+    height: calc(100vh - 182px);
+    position: fixed;
+    right: -300px;
+  }
+  #showVideoList{
+    display: block !important;
+  }
+  #bradcrum{
+    display: none;
+  }
+}

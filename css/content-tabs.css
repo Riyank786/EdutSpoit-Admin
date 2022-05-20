@@ -1,0 +1,244 @@
+.tab {
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  font-weight: bold;
+  background: linear-gradient(
+    to top,
+    rgba(161, 255, 184, 0.562),
+    rgb(255, 255, 255)
+  );
+  color: rgb(12, 194, 12) !important;
+  border-bottom: 2px solid rgb(46, 206, 46);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 17px;
+  border-top: none;
+}
+
+.tabcontent-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.askQueBtn,.addAnsBtn{
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+#summary {
+  display: block;
+}
+
+.que-wrapper, .que-detail-page{
+  width: 100%;
+  margin-top: 7px;
+}
+.que-card, .ans-card{
+  width: 80%;
+  height: 70px;
+  padding: 20px;
+  margin: 22px auto;
+  border-radius: 7px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.7);
+  position: relative;
+  font-family: serif;
+  cursor: pointer;
+}
+
+.que-card .que{
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.que-card .que-desc, .ans-card .ans-desc{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.que-desc p{
+  margin: 0% 7px;
+}
+
+/* question detail page */
+.que-detail-page{
+  display: none;
+}
+.que-detail-page h4, .que-detail-page .ans-card{
+  width: 80%;
+  margin: 22px auto;
+}
+.ans-card{
+  height: auto;
+}
+.ans-card .deleteBtn, .que-card .deleteBtn{
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  top: 7%;
+  right: 5%;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+} 
+
+.ans-card .deleteBtn:hover, .que-card .deleteBtn:hover{
+  transform: scale(1.1);
+}
+
+.ans-card .ans-desc{
+  justify-content: flex-end;
+  margin: 7px 0;
+}
+.ans-desc p{
+  margin: 0 12px;
+}
+
+.backBtn{
+  border: none;
+  outline: none;
+  padding: 7px 12px;
+  border: 2px solid black;
+  background-color: transparent;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  /* margin: 15% auto; 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 12px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-form{
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modal-form label{
+  font-size: 24px;
+}
+
+.modal-form textarea{
+  width: 100%;
+  height: 150px;
+  margin: 2px 0;
+  padding: 3px 5px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-bottom: 22px;
+  resize: none;
+}
+
+
+.modal-form .addBtn {
+  width: 150px;
+  height: 30px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: rgb(32, 197, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: white;
+}
+
+.addBtn:hover {
+  background-color: rgb(32, 215, 32);
+}
+
+
+@media (max-width : 550px) {
+  .modal-content{
+      width: 80%;
+  }   
+}

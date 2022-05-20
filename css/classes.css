@@ -1,0 +1,106 @@
+.content .body-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: transparent;
+  overflow: auto;
+  height: fit-content;
+  /* background-color: rgba(255, 255, 255, 0.234);
+    border: 1px solid white; */
+}
+
+.card {
+  width: 150px !important;
+  height: 150px !important;
+  background-color: white;
+
+  border-radius: 17px;
+  margin: 20px !important;
+  padding: 0% !important;
+
+  color: gray;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  position: relative;
+}
+.cardOption {
+  width: 20px;
+  height: 25px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: gray;
+  right: 7px;
+  top: 7px;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100px;
+  height: 20px;
+  font-size: 1.2rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  border: 0.5px solid grey;
+  right: 12px;
+  top: -12px;
+  color: rgb(165, 61, 61);
+  cursor: pointer;
+}
+.dropdown-content i {
+  font-size: 15px;
+  margin-right: 7px;
+}
+.dropdown-content:hover {
+  color: red;
+}
+.show {
+  display: flex;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.001);
+}
+
+.addClassCard {
+  width: 148px;
+  height: 148px;
+  background-color: transparent !important;
+  box-shadow: none;
+  color: rgb(12, 194, 12);
+  border: 2px dashed rgb(12, 194, 12);
+}
+.addClassCard:hover {
+  box-shadow: none;
+}
+
+.modal-form .addClass {
+  width: 100px;
+  height: 30px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: rgb(32, 197, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: white;
+}
+
+.class-form .addClass:hover {
+  background-color: rgb(32, 215, 32);
+}

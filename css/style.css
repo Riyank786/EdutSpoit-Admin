@@ -1,0 +1,479 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap");
+
+* {
+  margin: 0%;
+  padding: 0%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  height: 100vh;
+  background-color: #809de2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Baloo Bhai 2", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: saturate(180%) blur(40px);
+}
+
+.main-container .sidebar {
+  width: 222px;
+  height: 98%;
+  position: relative;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+  margin-left: 12px;
+  border-radius: 17px;
+
+  transition: all 0.5s;
+  z-index: 99;
+}
+
+.sidebar #closeSideBar{
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  display: none; /* flex */
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-container .sidebar .nav-links .nav-items,
+#logo-wrapper {
+  list-style: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-items:hover{
+  background-color:rgba(161, 255, 184, 0.562) ;
+}
+
+.nav-links .active {
+  border-left: 4px solid rgb(46, 206, 46);
+  background: linear-gradient(
+    to right,
+    rgba(161, 255, 184, 0.562),
+    rgb(255, 255, 255)
+  );
+  color: rgb(12, 194, 12) !important;
+  font-weight: bold;
+}
+
+#logo-wrapper {
+  height: 100px;
+  flex-direction: column;
+}
+
+.main-container .content {
+  width: calc(100% - 280px);
+  height: 98vh;
+  margin-left: 27px;
+}
+
+.content .header {
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+}
+
+.header .header_left,
+.header .header_right {
+  width: 100%;
+}
+
+#openMenuIcon{
+  display: none;
+  font-size: large;
+}
+.header_left .title {
+  margin-left: 7px;
+  margin-top: 7px;
+}
+
+.header_right_top,
+.header_right_bottom {
+  height: 50%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header_right_top .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.7em;
+  cursor: pointer;
+  position: relative;
+  color: #505763;
+  padding: 0px 17px;
+}
+.profile h6, .profile i{
+  margin-right: 7px;
+}
+.header_right_top .profile:hover{
+  color: #292c31;
+}
+.header_right_top .profile:hover .drop-down{
+  display: block;
+}
+.profile .drop-down{
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  color: #505763;
+  background-color:white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 9;
+}
+
+.drop-down .drop-down-content {
+  width: 120px;
+  font-size: 1.2rem;
+  padding: 0.5em;
+  border-radius:12px;
+  display: flex;
+  align-items: center;
+}
+.drop-down .drop-down-content:hover {
+  background-color:rgba(80, 245, 121, 0.562) ;
+}
+
+.content .body-wrapper {
+  width: 100%;
+  height: calc(100% - 125px);
+  background-color: white;
+
+  border-radius: 17px;
+
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.body-wrapper .card-wrapper {
+  width: 100%;
+  height: fit-content;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.body-wrapper .stat-card{
+  width: 320px;
+  height: 100px;
+  border-radius: 17px;
+  margin: 27px;
+  background-color:white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.stat-card .card_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  font-size: 70px;
+}
+
+.stat-card .stat-wrapper{
+  width: 77%;
+}
+
+.stat-wrapper .title, .stat-wrapper .value{
+  width: 100%;
+  height:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-wrapper .title{
+  color: rgb(85, 85, 85);
+  font-size: 22px;
+}
+.stat-wrapper .value{
+  font-size:32px;
+  padding: 0;
+  margin: 0;
+}
+
+/* page selectors */ 
+.selectors{
+  display: flex;
+}
+.pageSelect{
+  width: 40%;
+  height: 27px;
+  border: none;
+  border-radius: 7px;
+  padding: 0 7px;
+  font-size: 17px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin-bottom: 17px;
+  margin-left: 12px;
+}
+
+/* adding new content button */
+.addContentCard{
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 20px;
+  font-size: 5rem;
+  cursor: pointer;
+  color: rgb(12, 194, 12);
+  border: 2px dashed rgb(12, 194, 12);
+  border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* card */
+.body-wrapper .card{
+  width: 320px;
+  height: 100px;
+
+  background-color: white;
+  border-radius: 17px;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+
+  margin: 7px;
+  padding: 12px;
+  
+  display: flex;
+  position: relative;
+}
+.body-wrapper .card .card-image {
+  width: 40%;
+  height: 100%;
+}
+.card-image img {
+  border-radius: 12px;
+}
+.card-desc {
+  width: 60%;
+  height: 100%;
+  border-radius: 12px;
+  padding-left: 12px;
+  position: relative;
+}
+.card-desc button {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  background-color: #4dc591;
+  color: white;
+  padding: 2px 5px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: "Baloo Bhai 2", sans-serif;
+}
+.cardOption{
+  width: 20px;
+  height: 25px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: gray;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  /* margin: 15% auto; 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 12px;
+}
+
+/* The Close Button */
+.close, .closeAdminUserModal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .closeAdminUserModal:hover,
+.close:focus , .closeAdminUserModal:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-form{
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modal-form label{
+  font-size: 24px;
+}
+
+.modal-form input{
+  width: 70%;
+  margin: 2px 0;
+  padding: 3px 5px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-bottom: 22px;
+}
+
+.modal-form .addAdminBtn{
+  width: 100px;
+  height: 30px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: rgb(32, 197, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: white;
+}
+.modal-form .addAdminBtn:hover{
+  background-color: rgb(32, 215, 32);
+}
+
+@media (max-width : 550px) {
+  .modal-content{
+      width: 80%;
+  }   
+  .body-wrapper{
+    border-radius: 0px !important;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .main-container .sidebar {
+    position: absolute;
+    left: -300px;
+    transition: all 0.5s;
+  }
+  .main-container .content {
+    width: 100%;
+    margin: 0%;
+  }
+  #openMenuIcon{
+    display: flex;
+  }
+  .header_left .title{
+    margin: 0%;
+  }
+  .header_left .title, #openMenuIcon{
+    margin-left: 10px;
+  }
+  .header_left {
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+}
+
+@media (max-width: 990px) {
+  #body-wrapper{
+    height: calc(100% - 170px);
+    overflow: auto !important;
+    justify-content: center;
+  }
+  .body-wrapper .card-wrapper{
+    justify-content: center;
+  } 
+  .card-wrapper .stat-card{
+    margin: 7px;
+    justify-content:center;
+  }
+  
+}
+
+@media (max-width: 450px) {
+  .header{
+    font-size: 0.8rem;
+  }
+  .header .header_right{
+    width: 30%;
+  }
+}

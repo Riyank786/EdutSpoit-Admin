@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning</title>
+    <script type="module" src="./js/authenticateUser.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+      integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/content.css" />
+    <link rel="stylesheet" href="./css/content-tabs.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <nav class="sidebar">
+        <div id="closeSideBar" onclick="closeSideBar()">&times;</div>
+        <ul class="nav-links">
+          <a href="index.html">
+            <li id="logo-wrapper">
+              <h2>EdutSpot</h2>
+            </li>
+          </a>
+          <a href="index.html">
+            <li class="nav-items">
+              <i class="fa fa-home" style="color: crimson"></i
+              >&nbsp;&nbsp;&nbsp;&nbsp;Home
+            </li>
+          </a>
+          <a href="classes.html">
+            <li class="nav-items">Classes</li>
+          </a>
+          <a href="subjects.html">
+            <li class="nav-items">Subjects</li>
+          </a>
+          <a href="chapters.html">
+            <li class="nav-items">Chapters</li>
+          </a>
+          <a href="content.html">
+            <li class="nav-items active">Content</li>
+          </a>
+        </ul>
+      </nav>
+
+      <div class="content">
+        <div class="header">
+          <div class="header_left">
+            <i
+              class="fa fa-bars"
+              id="openMenuIcon"
+              onclick="openSideMenu()"
+            ></i>
+            <h2 class="title" onclick="goToHomePage()" style="cursor: pointer">
+              EdutSpot
+            </h2>
+          </div>
+
+          <div class="header_right">
+            <div class="header_right_top">
+              <div class="notification">
+                <!-- <i class="fa fa-bell-o"></i> -->
+              </div>
+              <div class="profile">
+                <i class="fa fa-user"></i>
+                <h6 id="userName"></h6>
+                <i
+                  class="fa fa-caret-down"
+                  style="display: none"
+                  id="showVideoList"
+                  onclick="showVideoList()"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selectors">
+          <div class="optionsWrapper">
+            <b style="margin-left: 22px">Select Class : </b>
+            <select name="class" id="classSelect" class="pageSelect"></select>
+          </div>
+          <div class="optionsWrapper">
+            <b style="margin-left: 22px">Select Subject : </b>
+            <select
+              name="subject"
+              id="subjectSelect"
+              class="pageSelect"
+            ></select>
+          </div>
+          <div class="optionsWrapper">
+            <b style="margin-left: 22px">Select Chapter : </b>
+            <select
+              name="chapter"
+              id="chapterSelect"
+              class="pageSelect"
+            ></select>
+          </div>
+        </div>
+
+        <!-- add content modal -->
+        <div id="addContentModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-form">
+              <label for="video-link-input">Add Video Link</label>
+              <small>Add youtube share link.</small>
+              <input type="text" name="video-link" id="video-link-input">
+              <label for="video-title-input">Video Title</label>
+              <input type="text" name="video-title" id="video-title-input">
+              <label for="video-desc-input">Video Description</label>
+              <textarea name="video-desc" id="video-desc-input"></textarea>
+            </div>
+          </div>
+        </div>   
+        <div class="body-wrapper" id="body-wrapper">
+          <div class="video-content">
+            <!-- video frame -->
+            <div class="video-wrapper" id="videoFrame-wrapper">
+            </div>
+
+            <div class="content-wrapper">
+              <!-- tab buttons to change tabs -->
+              <div class="tab">
+                <button
+                  class="tablinks active"
+                  id="summaryTabBtn"
+                  onclick="openContent(event,'summary')"
+                >
+                  Summary
+                </button>
+                <button class="tablinks" onclick="openContent(event,'impQ&A')">
+                  Important Q&A
+                </button>
+                <button class="tablinks" onclick="openContent(event,'prevQ&A')">
+                  Previous Q&A
+                </button>
+                <button class="tablinks" onclick="openContent(event,'chptQ&A')">
+                  Chapter Q&A
+                </button>
+              </div>
+
+              <div id="summary" class="tabcontent">
+              </div>
+
+              <!-- important question tab body -->
+              <div id="impQ&A" class="tabcontent">
+                <div class="que-wrapper" id="imp-que-wrapper">
+                  <div class="tabcontent-header">
+                    <h3>Important Q&A</h3>
+                    <button class="askQueBtn" onclick="openModal('important')">
+                      Ask a new question
+                    </button>
+                  </div>
+                  <div id="imp-que-container" class="que-container"></div>
+                </div>
+                <div class="que-detail-page" id="imp-que-detail-page"></div>
+              </div>
+
+              <!-- previous year question tab body -->
+              <div id="prevQ&A" class="tabcontent">
+                <div class="que-wrapper" id="pre-que-wrapper">
+                  <div class="tabcontent-header">
+                    <h3>Previous Q&A</h3>
+                    <button class="askQueBtn" onclick="openModal('previous')">
+                      Ask a new question
+                    </button>
+                  </div>
+                  <div id="pre-que-container" class="que-container"></div>
+                </div>
+                <div class="que-detail-page" id="pre-que-detail-page">
+                  <div class="tabcontent-header">
+                    <h3>Important Q&A</h3>
+                    <button class="addAnsBtn">Add answer</button>
+                  </div>
+                  <div id="pre-que-container" class="que-container"></div>
+                </div>
+              </div>
+
+              <!-- chapter question tab body -->
+              <div id="chptQ&A" class="tabcontent">
+                <div class="que-wrapper" id="chpt-que-wrapper">
+                  <div class="tabcontent-header">
+                    <h3>Chapter Q&A</h3>
+                    <button class="askQueBtn" onclick="openModal('chapter')">
+                      Ask a new question
+                    </button>
+                  </div>
+                  <div id="chpt-que-container" class="que-container"></div>
+                </div>
+                <div class="que-detail-page" id="chpt-que-detail-page">
+                  <div class="tabcontent-header">
+                    <h3>Chapter Q&A</h3>
+                    <button class="addAnsBtn">Add answer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- add question modal  -->
+          <div id="addQuestionModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-form">
+                <label for="que-input">Enter question to ask.</label>
+                <textarea name="question-input" id="que-input"></textarea>
+                <button class="addBtn" onclick="addQuestion()">
+                  Add Question
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- add answer modal  -->
+          <div id="addAnswerModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-form">
+                <label for="ans-input">Enter your answer.</label>
+                <textarea name="ans-input" id="ans-input"></textarea>
+                <button class="addBtn" onclick="addAnswer()">Add answer</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- video list  -->
+          <ol class="video-list" id="video-list">
+          </ol>       
+
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/http.interceptor.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+      integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./utils/sideMenuControls.js"></script>
+    <script src="./utils/getClasses.js"></script>
+    <script src="./js/content.js"></script>
+    <script src="./js/content-tabs.js"></script>
+    <script src="./js/qnaHandle.js"></script>
+  </body>
+</html>

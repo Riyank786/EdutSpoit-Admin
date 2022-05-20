@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class</title>
+    <script type="module" src="./js/authenticateUser.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/chapters.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <nav class="sidebar">
+        <div id="closeSideBar" onclick="closeSideBar()">&times;</div>   <!-- function call from utils -->
+        <ul class="nav-links">
+          <a href="index.html">
+            <li id="logo-wrapper">
+              <h2>EdutSpot</h2>
+            </li>
+          </a>
+          <a href="index.html">
+            <li class="nav-items">
+              <i class="fa fa-home" style="color: crimson"></i
+              >&nbsp;&nbsp;&nbsp;&nbsp;Home
+            </li>
+          </a>
+          <a href="classes.html">
+            <li class="nav-items">Classes</li>
+          </a>
+          <a href="subjects.html">
+            <li class="nav-items">Subjects</li>
+          </a>
+          <a href="chapters.html">
+            <li class="nav-items active">Chapters</li>
+          </a>
+          <a href="content.html">
+            <li class="nav-items">Content</li>
+          </a>
+        </ul>
+      </nav>
+
+      <div class="content">
+        
+        <div class="header">
+          <div class="header_left">
+            <i class="fa fa-bars" id="openMenuIcon" onclick="openSideMenu()"></i>  <!-- function call from utils -->
+            <h2 class="title">Welcome to EdutSpot</h2>
+          </div>
+
+          <div class="header_right">
+            <div class="header_right_top">
+              <div class="profile">
+                <i class="fa fa-user-circle-o"></i>
+                <h6 id="userName"></h6>
+                <div class="drop-down">
+                  <div class="drop-down-content" onclick="addAdminUser()"><i class="fa fa-plus-square" aria-hidden="true"></i>Add Admin</div>
+                  <div class="drop-down-content" onclick="logOutUser()"><i class="fa fa-sign-out"></i> Sign Out</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- add admin user modal -->
+        <div id="addUserModal" class="modal">
+          <div class="modal-content">
+            <span class="closeAdminUserModal">&times;</span>
+            <div class="modal-form">
+              <label for="modal-username">User Name</label>
+              <input type="text" id="modal-username" placeholder="john">
+              <label for="modal-email">Email Id</label>
+              <input type="text" id="modal-email" placeholder="abc@gmail.com">
+              <label for="modal-password">Password</label>
+              <input type="text" id="modal-password">
+              <button class="addAdminBtn" id="addAdminBtn">Add Admin</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="selectors">
+          <div class="optionsWrapper">
+            <b style="margin-left: 22px">Select Class : </b>
+            <select name="class" id="classSelect" class="pageSelect"></select>
+          </div>
+          <div class="optionsWrapper">
+            <b style="margin-left: 22px">Select Subject : </b>
+            <select name="subject" id="subjectSelect" class="pageSelect"></select>
+          </div>
+        </div>
+
+        <div class="body-wrapper" id="body-wrapper">
+          <div class="addContentCard" onclick="openModal()">
+            +
+          </div>
+        </div>
+
+
+        <!-- adding modal current work -->
+        <div id="addChapterModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-form">
+
+              <label for="classSelector">Class</label>
+              <select name="classSelector" id="classSelector"></select>
+
+              <label for="subjectSelector">Subject</label>
+              <select name="subjectSelector" id="subjectSelector"></select>
+              
+              <label for="chpater-input">Chapter Name</label>
+              <input type="text" id="chapter-input" />
+
+              <button class="addChapter" onclick="addNewChapter()">
+                Add Chapter
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- edit subject modal -->
+        <div id="editChapterModal" class="modal">
+          <!-- modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-form">
+              <label id="editModalClassLabel"></label>
+              <label id="editModalSubjectLabel"></label>
+              <label for="modal-input" style="font-size: 20px; margin-top: 7px;">Chapter Name</label>
+              <input type="text" id="chapter-edit-input"/>
+              <div class="form-control">
+                <button class="addChapter cancel" onclick="cancelEditFunc()">Cancel</button>
+                <button class="addChapter" id="editChptBtn">Save Updates</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./js/http.interceptor.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./utils/toasterOptions.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./utils/userSettings.js"></script>
+    <script src="./utils/getClasses.js"></script>
+    <script src="./utils/sideMenuControls.js"></script>
+    <script src="./js/chapters.js"></script>
+  </body>
+</html>
