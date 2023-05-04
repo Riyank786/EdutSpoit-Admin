@@ -105,7 +105,7 @@ function cancelEditFunc(){
 $('.close:eq(1)').click(() => cancelEditFunc());
 // -----------------  setting the chapter cards ----------------- //
 function setChapterCard(cls, sub) {
-  let urls = ` https://edu-spot.herokuapp.com/chapter?class=${cls}&subject=${sub}`
+  let urls = ` http://localhost:3000/chapter?class=${cls}&subject=${sub}`
   let chapters = JSON.parse(httpGet(urls));
   $('.card').remove();
   
@@ -180,7 +180,7 @@ function addNewChapter(){
 
 // ------------------------ post request to save chapter ------------------------ //
 function addChpater(data){
-  let url = ' https://edu-spot.herokuapp.com/addChapter';
+  let url = ' http://localhost:3000/addChapter';
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -219,7 +219,7 @@ function editChapter(chptToBeEdited, crntClass, crntSubject){
 
 // ------------------------ patch request to update subject ------------------------ //
 function updateChapter(updateData){
-  let url = " https://edu-spot.herokuapp.com/updateChapter";
+  let url = " http://localhost:3000/updateChapter";
   var xhr = new XMLHttpRequest();
   xhr.open("PATCH", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -245,7 +245,7 @@ function updateChapter(updateData){
 
 // ------------------------ request to delete chapter ------------------------ //
 function deleteChapterFromDb(cls, subject, chapter){
-  let theUrl = ` https://edu-spot.herokuapp.com/deleteChapter?class=${cls}&subject=${subject}&chapter=${chapter}`;
+  let theUrl = ` http://localhost:3000/deleteChapter?class=${cls}&subject=${subject}&chapter=${chapter}`;
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("DELETE", theUrl, false);
   xmlHttp.send(null);

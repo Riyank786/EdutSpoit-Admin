@@ -127,7 +127,7 @@ function addContent(){
     ]
   }
 
-  let url = " https://edu-spot.herokuapp.com/addContent";
+  let url = " http://localhost:3000/addContent";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -150,7 +150,7 @@ function addContent(){
 
 // ------------------------ update content function ------------------------ //
 function updateContent(videoId, contentId, index){
-  let updateUrl = ' https://edu-spot.herokuapp.com/updateContent'; 
+  let updateUrl = ' http://localhost:3000/updateContent'; 
   let videoLink = $('#video-link-input').val();
   let videoTitle = $('#video-title-input').val();
   let videoDesc = $('#video-desc-input').val();
@@ -198,7 +198,7 @@ function deleteVideoContent(videoId, contentId){
 }
 // ------------------------ request to delete subject ------------------------ //
 function deleteContentFromDb(videoId, contentId){
-  let theUrl = ` https://edu-spot.herokuapp.com/deleteVideoContent?videoId=${videoId}&contentId=${contentId}`;
+  let theUrl = ` http://localhost:3000/deleteVideoContent?videoId=${videoId}&contentId=${contentId}`;
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("DELETE", theUrl, false);
   xmlHttp.send(null);
@@ -213,7 +213,7 @@ function deleteContentFromDb(videoId, contentId){
 
 // ------------------------ post request to add question ------------------------ //
 async function addQuestionsToDb(data) {
-  let url = " https://edu-spot.herokuapp.com/addQuestion";
+  let url = " http://localhost:3000/addQuestion";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -269,7 +269,7 @@ function deleteQuestion(id, videoId){
   }).then((result) => {
     if (result.isConfirmed) {
 
-      const deleteQuestionUrl = ` https://edu-spot.herokuapp.com/deleteQuestion?questionId=${id}`;
+      const deleteQuestionUrl = ` http://localhost:3000/deleteQuestion?questionId=${id}`;
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open("DELETE", deleteQuestionUrl, false);
       xmlHttp.send(null);
@@ -287,7 +287,7 @@ function deleteQuestion(id, videoId){
 
 // ------------------------ post request to add answer ------------------------ //
 async function addAnswerToDb(data) {
-  let url = " https://edu-spot.herokuapp.com/addAnswer";
+  let url = " http://localhost:3000/addAnswer";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -428,7 +428,7 @@ function getTimeDiff(timeStart) {
 }
 
 function setQuestions(videoId) {
-  let url = ` https://edu-spot.herokuapp.com/fetchQnA?videoId=${videoId}`;
+  let url = ` http://localhost:3000/fetchQnA?videoId=${videoId}`;
   let questions = JSON.parse(httpGet(url));
 
   openQuestions("imp-que-wrapper", "imp-que-detail-page");
@@ -549,7 +549,7 @@ function hideVideoList() {
 }
 
 function getContentData(crntClass, crntSubject, crntChapter) {
-  let queURL = ` https://edu-spot.herokuapp.com/content?class=${crntClass}&subject=${crntSubject}&chapterName=${crntChapter}`;
+  let queURL = ` http://localhost:3000/content?class=${crntClass}&subject=${crntSubject}&chapterName=${crntChapter}`;
   let data = JSON.parse(httpGet(queURL));
   return data;
 }

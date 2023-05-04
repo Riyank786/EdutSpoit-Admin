@@ -64,7 +64,7 @@ function goToChaptersPage(subject, cls) {
 
 // ------------------------ setting the subjects card ------------------------ //
 function setSubjects(cls) {
-  let urls = ` https://edu-spot.herokuapp.com/subject?class=${cls}`;
+  let urls = ` http://localhost:3000/subject?class=${cls}`;
   let subjects = JSON.parse(httpGet(urls));
 
   $(".card").remove();
@@ -198,7 +198,7 @@ function addNewSubject() {
 
 // ------------------------ post request to save subject ------------------------ //
 function addSubject(data) {
-  let url = " https://edu-spot.herokuapp.com/addSubject";
+  let url = " http://localhost:3000/addSubject";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -237,7 +237,7 @@ function editSubject(sub, cls){
 
 // ------------------------ patch request to update subject ------------------------ //
 function updateSubject(updateData){
-  let url = " https://edu-spot.herokuapp.com/updateSubject";
+  let url = " http://localhost:3000/updateSubject";
   var xhr = new XMLHttpRequest();
   xhr.open("PATCH", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
@@ -272,7 +272,7 @@ function deleteSubject(cls, subject){
 }
 // ------------------------ request to delete subject ------------------------ //
 function deleteSubjectFromDb(cls, subject){
-  let theUrl = ` https://edu-spot.herokuapp.com/deleteSubject?class=${cls}&subject=${subject}`;
+  let theUrl = ` http://localhost:3000/deleteSubject?class=${cls}&subject=${subject}`;
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("DELETE", theUrl, false);
   xmlHttp.send(null);

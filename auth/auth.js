@@ -1,7 +1,7 @@
 // -------------------------------- login handling -------------------------------- // 
 function login(data){
 
-  const loginURL = " https://edu-spot.herokuapp.com/admin/adminLogin";
+  const loginURL = " http://localhost:3000/admin/adminLogin";
 
   const xhr = new XMLHttpRequest();
   xhr.open("POST", loginURL, true);
@@ -24,7 +24,7 @@ function login(data){
         let response = JSON.parse(xhr.response);
         localStorage.setItem("Authorization", response.token);
         localStorage.setItem("UserInfo", JSON.stringify(response.data));
-        window.location.href = "/EdutSpot-Admin/";
+        window.location.href = "/admin/";
       } 
     }
   };

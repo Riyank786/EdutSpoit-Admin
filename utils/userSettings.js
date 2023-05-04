@@ -1,7 +1,7 @@
 function logOutUser(){
   localStorage.removeItem("Authorization");
   localStorage.removeItem("UserInfo");
-  window.location.href = "/EdutSpot-Admin/auth/";
+  window.location.href = "/admin/auth/";
 }
 
 const addAdminUsermodal = document.getElementById("addUserModal");
@@ -45,7 +45,7 @@ $("#addAdminBtn").click(() => {
   let userRole = "admin";
   let data = {userName, emailId, password, userRole};
 
-  const url = " https://edu-spot.herokuapp.com/admin/addAdminUser";
+  const url = " http://localhost:3000/admin/addAdminUser";
 
   const xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);

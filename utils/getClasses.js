@@ -11,7 +11,7 @@ function httpGet(theUrl) {
 }
 // getting all classes
 function getClasses() {
-  let url = " https://edu-spot.herokuapp.com/";
+  let url = " http://localhost:3000/";
   let classes = [];
   let data = JSON.parse(httpGet(url));
   data.forEach((el) => {
@@ -23,7 +23,7 @@ function getClasses() {
 
 // getting subject of class 'cls'
 function getSubjects(cls){
-  let url = ` https://edu-spot.herokuapp.com/subject?class=${cls}`
+  let url = ` http://localhost:3000/subject?class=${cls}`
   let subjects = [];
   let data = JSON.parse(httpGet(url));
   data.forEach(el =>{
@@ -34,7 +34,7 @@ function getSubjects(cls){
 
 // getting chapter of class cls and subject
 function getChapters(cls, subject){
-  let url = ` https://edu-spot.herokuapp.com/chapter?class=${cls}&subject=${subject}`;
+  let url = ` http://localhost:3000/chapter?class=${cls}&subject=${subject}`;
   let chapters = [];
   let data = JSON.parse(httpGet(url));
   data.forEach(el =>{
@@ -46,24 +46,24 @@ function getChapters(cls, subject){
 
 // get all subjects 
 function getAllSubjects(){
-  let url = ` https://edu-spot.herokuapp.com/allSubjects`;
+  let url = ` http://localhost:3000/allSubjects`;
   return JSON.parse(httpGet(url));
 }
 
 // get all chapters
 function getAllChapters(){
-  let url = ` https://edu-spot.herokuapp.com/allChapters`;
+  let url = ` http://localhost:3000/allChapters`;
   return JSON.parse(httpGet(url));
 }
 
 // get all videos
 function getAllVideos(){
-  let url = ` https://edu-spot.herokuapp.com/allVideos`;
+  let url = ` http://localhost:3000/allVideos`;
   return JSON.parse(httpGet(url));
 }
 
 // get total questions
 function getAllQuestions(){
-  let url = ` https://edu-spot.herokuapp.com/totalQuestions`;
+  let url = ` http://localhost:3000/totalQuestions`;
   return JSON.parse(httpGet(url));
 }

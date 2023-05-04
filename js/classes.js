@@ -42,7 +42,7 @@ function deleteClass(cls) {
 
 // ------------------------ request to delete class ------------------------ //
 function deleteClsFromDb(cls) {
-  let theUrl = ` https://edu-spot.herokuapp.com/deleteClass?class=${cls}`;
+  let theUrl = ` http://localhost:3000/deleteClass?class=${cls}`;
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("DELETE", theUrl, false);
   xmlHttp.send(null);
@@ -102,7 +102,7 @@ window.onclick = function (event) {
 
 // ------------------------ post request to save class ------------------------ //
 async function addClasses(data) {
-  let url = " https://edu-spot.herokuapp.com/addClass";
+  let url = " http://localhost:3000/addClass";
   var xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Content-Type", "application/json");
